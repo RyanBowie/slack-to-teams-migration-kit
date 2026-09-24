@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+*.zip
+*.log
+.portfolio-runs/
+runs/
+.runtime/
+evidence/
+deliverables/
+browser-state.json
