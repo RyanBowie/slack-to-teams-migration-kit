@@ -8,8 +8,11 @@ behaviour is preserved. This is an approach other engineers can reproduce and
 adapt, not a commercial product or an official migration service.
 
 The website includes six genuine Slack/Teams screenshot pairs, the migration
-workflow, measured worker costs, limitations and an unsuccessful notification
-example. All application scenarios and business data are synthetic.
+workflow, limitations, an unsuccessful notification example, and a controlled
+GPT-5.6 Sol cost benchmark with three accepted samples each for Equipment Loans,
+Store Operations and Manager Approvals. The benchmark reports worker,
+coordinator and parent setup/supervision costs instead of presenting worker-only
+usage as an end-to-end price. All scenarios and business data are synthetic.
 
 The latest exact-ZIP readiness test is deliberately a mixed result: installation
 and 37 packaged regression checks passed; a new dashboard was accepted locally
@@ -24,6 +27,7 @@ The prerequisites and compatibility guide explains those adoption limits.
 - [Six demonstrated migrations](docs/migrations.md)
 - [Additional coverage: two accepted migrations and one stopped failure](docs/coverage.md)
 - [Fresh three-app portfolio generation and cost breakdown](docs/acceptance.md)
+- [GPT-5.6 Sol nine-migration all-in cost benchmark](docs/gpt56-cost-benchmark.md)
 
 ## Publication boundary
 
