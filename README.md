@@ -11,8 +11,16 @@ The website includes six genuine Slack/Teams screenshot pairs, the migration
 workflow, measured worker costs, limitations and an unsuccessful notification
 example. All application scenarios and business data are synthetic.
 
+The latest exact-ZIP readiness test is deliberately a mixed result: installation
+and 37 packaged regression checks passed; a new dashboard was accepted locally
+after two browser-led repairs, while a new policy target exhausted four attempts
+without compiling. The final managed cost was **86.057190 AI credits**, including
+the failed asset; outside coordination/review and operating costs remain separate.
+The prerequisites and compatibility guide explains those adoption limits.
+
 ## Documentation
 
+- [Installation readiness, prerequisites and exact-release testing](docs/readiness.md)
 - [Six demonstrated migrations](docs/migrations.md)
 - [Additional coverage: two accepted migrations and one stopped failure](docs/coverage.md)
 - [Fresh three-app portfolio generation and cost breakdown](docs/acceptance.md)

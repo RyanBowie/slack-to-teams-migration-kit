@@ -180,6 +180,7 @@
     .muted, .small { color: var(--cp-text-muted); }
     .small { font-size: 14px; }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 20px; }
+    #inputs > .grid { margin-block: 24px; }
     .card { min-width: 0; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; padding: 28px; }
     .card p { font-size: 14px; }
     .hero-cards { margin-top: 28px; }
@@ -290,7 +291,7 @@
   <header>
     <div class="wrap">
       <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">[m]</span><span>Migration Kit<small>Slack to Teams &middot; documented demo</small></span></a>
-      <nav aria-label="Main navigation"><a href="#migrations">Examples</a><a href="#kit-contents">Approach</a><a href="#compatibility">Compatibility</a><a href="#workflow">Workflow</a><a href="#costs">Costs</a><a href="#quick-start">Guide</a></nav>
+      <nav aria-label="Main navigation"><a href="#migrations">Examples</a><a href="#kit-contents">Approach</a><a href="#compatibility">Compatibility</a><a href="#inputs">Prerequisites</a><a href="#kit-costs">Costs</a><a href="#quick-start">Guide</a></nav>
       <button id="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
     </div>
   </header>
@@ -316,7 +317,7 @@
           <p>Copilot reads scoped source, surfaces questions and builds the reviewed Teams adapter. Independent checks compare the result with the original behaviour; failed checks feed bounded repairs instead of becoming a success claim.</p>
           <div class="actions"><a class="button primary" href="#workflow">How the process works</a><a class="button primary" href="#kit-contents">Inside the private toolkit</a><a class="button" href="#compatibility">Check the supported patterns</a><a class="button" href="#coverage">Additional coverage and costs</a></div>
           <p><strong>Documentation, not a product release.</strong> This public repository contains the website and case studies only. Toolkit source, ZIP, generated apps and private evidence remain private.</p>
-          <p class="fine-print">Others can reproduce the approach with their own authorised source and tooling. Source review, application-owner decisions and production acceptance are still required; a local pass is not deployment approval.</p>
+          <p class="fine-print"><strong>A reusable developer preview, not a turnkey installer.</strong> Engineers still supply source contracts, acceptance cases, identity mappings and authenticated hosting. Read the <a href="#inputs">prerequisites</a> and <a href="#release-testing">exact-release test evidence</a>; a local pass is not deployment approval.</p>
           <details><summary>What you need before starting</summary><p>Bring <a href="#inputs">authorised source and owner decisions</a>, inspect <a href="#outputs">the expected artifacts</a>, and distinguish the <a href="#portfolio-proof">fresh local generation evidence</a> from historical live proof. The <a href="#faq">FAQ</a> covers the remaining limits.</p></details>
         </article>
       </div>
@@ -465,18 +466,21 @@
     <section id="compatibility" aria-labelledby="compatibility-title">
       <div class="eyebrow">Compatibility before conversion</div>
       <h2 id="compatibility-title">What can it migrate today?</h2>
-      <p class="section-intro">Support is based on the application's source and behaviour, not just its name in Slack. The supplied recipes expect trusted JavaScript/Node source with a separable business service and a reviewed acceptance baseline. Other patterns need engineering before they can use this workflow.</p>
+      <p class="section-intro">Support is based on the application's source and behaviour, not just its name in Slack. The privately packaged v0.2 release has <strong>two recipe families</strong>: command/action bots and one approvals-dashboard contract. Both expect trusted JavaScript/Node source, a separable business service and reviewed acceptance cases.</p>
+      <p class="note"><strong>Demonstrated does not mean bundled.</strong> The six live examples are historical evidence, not six ready-to-install templates. The stable ZIP contains five synthetic source fixtures and two recipes. The later reservations/intake work and unsuccessful notification extension are separate experiments; their extension code and fixtures are not in that ZIP.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Supported and unsupported migration patterns">
         <table class="capability-table">
-          <caption>v0.2 support boundaries &mdash; scroll horizontally on smaller screens</caption>
-          <thead><tr><th scope="col">Slack app or migration need</th><th scope="col">Current support</th><th scope="col">What that means in practice</th></tr></thead>
+          <caption>Stable v0.2 compatibility &mdash; source adaptation and tenant setup are still required</caption>
+          <thead><tr><th scope="col">Slack app or migration need</th><th scope="col">Shipped release status</th><th scope="col">Requirements and remaining work</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Command-based lookup bots</th><td><span class="support-label supported">Supported contract</span></td><td>Node/Bolt-style command handlers with reusable domain logic can become native Teams commands and private/public replies, as specified by the source and acceptance cases.</td></tr>
+            <tr><th scope="row">Command-based lookup bots</th><td><span class="support-label engineering">Defined recipe; latest test failed</span></td><td>Node/Bolt-style command handlers have a generation/replay path, with private/public replies specified by the source cases. However, the <a href="#release-testing">fresh packaged-release policy test</a> did not compile within four attempts. A recipe is not a guarantee of a usable generated app.</td></tr>
             <tr><th scope="row">Command + button workflows</th><td><span class="support-label supported">Supported contract</span></td><td>The bot recipe covers its defined command/action shape: for example maintenance decisions or delivery escalation, with Adaptive Cards, role checks, idempotency and observable state/audit.</td></tr>
             <tr><th scope="row">Approval-style App Home</th><td><span class="support-label supported">Specific recipe</span></td><td>The approval-domain list/decide contract can be redesigned as a personal-tab dashboard. This is not support for every App Home layout, modal or data model. A separately authenticated HTTP host is still needed.</td></tr>
             <tr><th scope="row">Monolithic or different-framework apps</th><td><span class="support-label engineering">Engineering required</span></td><td>Inline business logic, Python, Java, .NET, Go or incompatible Node interfaces need a reviewed extraction/adapter or another recipe. v0.2 does not automatically normalise arbitrary repositories.</td></tr>
-            <tr><th scope="row">Complex modals, shortcuts, events and jobs</th><td><span class="support-label engineering">Not covered as a class</span></td><td>A separate narrow two-step intake extension passed live testing; a notification extension failed acceptance. Neither establishes general conversion of arbitrary modals, schedules, reactions or events. Extension code remains private; see <a href="#coverage">the recorded outcomes</a>.</td></tr>
-            <tr><th scope="row">Databases, SaaS integrations and remote backends</th><td><span class="support-label engineering">Integration-specific work</span></td><td>Keep or adapt those integrations only after their contracts, permissions and safe test setup are reviewed. The kit does not discover credentials, move databases or prove live integration parity.</td></tr>
+            <tr><th scope="row">Other App Home interfaces, modals and shortcuts</th><td><span class="support-label engineering">New recipe or adapter</span></td><td>Arbitrary forms, layouts and multi-step interactions are not covered by the approvals recipe. A narrow two-step service-desk intake extension passed separate live testing, but that recipe and fixture are <strong>not included in the stable ZIP</strong>.</td></tr>
+            <tr><th scope="row">Events, notifications and scheduled digests</th><td><span class="support-label excluded">Not ready in this release</span></td><td>No shipped event/scheduler recipe. The experimental notification migration failed independent acceptance and its final repair did not compile; further repairs were stopped. It was not hosted in Teams. See <a href="#coverage">the failed result and its cost</a>.</td></tr>
+            <tr><th scope="row">HTTP APIs, databases and SaaS integrations</th><td><span class="support-label engineering">Integration-specific work</span></td><td>A compatible bot may reuse an existing backend, but engineers must supply authorised connectivity, secrets, API permissions and tests for failure, retry, rate limits and duplicate side effects. The live reservation example is separate coverage; its fixture is not shipped. The kit neither moves databases nor proves arbitrary live-backend parity.</td></tr>
+            <tr><th scope="row">Slack Workflow Builder / no-code workflows</th><td><span class="support-label excluded">No shipped converter</span></td><td>A workflow export is not the required Node source/service contract. Review its triggers, connectors, approvals and data separately, then select a Teams/Power Automate/vendor replacement or build a reviewed recipe.</td></tr>
             <tr><th scope="row">Vendor apps without accessible source</th><td><span class="support-label excluded">Not source-convertible here</span></td><td>Use a vendor's Teams offering, an approved integration or another reviewed replacement path. Installed-app metadata is not access to the vendor's backend code.</td></tr>
             <tr><th scope="row">Messages, channels, files and historical records</th><td><span class="support-label excluded">Not included</span></td><td>This is application-code migration, not workspace or message-history migration. Existing business-state transfer and directory/user migration are separate projects.</td></tr>
             <tr><th scope="row">Production deployment and operations</th><td><span class="support-label excluded">Not included</span></td><td>No automatic Entra SSO, durable store, Azure provisioning, tenant consent, rollout, monitoring or rollback is provided. The preview does not turn a local pass into production approval.</td></tr>
@@ -491,8 +495,10 @@
       <p class="small">&ldquo;Supported&rdquo; means the pattern has a defined generation and verification path. It does not guarantee first-pass model success, complete business equivalence or production readiness. Unsupported entries are reported as blocked/manual-review/vendor-alternative work, not silently marked migrated.</p>
     </section>
     <section id="inputs" aria-labelledby="inputs-title">
-      <div class="eyebrow">Before the first paid model call</div>
-      <h2 id="inputs-title">What you need to bring.</h2>
+      <div class="eyebrow">Prerequisites / adoption readiness</div>
+      <h2 id="inputs-title">Installable tooling. Not an automatic migration.</h2>
+      <p class="section-intro">An engineer receiving the private kit can set up its supported local workflow. Installing it does not discover Slack apps, make arbitrary source compatible, or deploy a working Teams application. The public documentation repository cannot run the kit: it contains no toolkit source or ZIP.</p>
+      <p class="note"><strong>Clean-folder testing is not a new-customer guarantee.</strong> The exact private release is tested separately from the development workspace, on the existing Windows workstation and approved Copilot account. A different user, clean machine, operating system and customer tenant still require their own pilot. See <a href="#release-testing">what was actually exercised</a>.</p>
       <div class="grid">
         <div class="card">
           <h3>Source and business evidence</h3>
@@ -504,16 +510,103 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Environment and decisions</h3>
+          <h3>Local installation and access</h3>
           <ul>
-            <li>Windows/PowerShell, Node.js 22+, npm and a compatible, approved Copilot CLI account. The preview selects GPT-5.4 mini explicitly.</li>
-            <li>Shared decisions about target experience, identity, hosting boundaries and what this migration will not change.</li>
-            <li>A reviewed credit allowance and attempt limit before running generation.</li>
-            <li>A trusted execution environment and an operator able to answer questions and review output.</li>
+            <li>Windows/PowerShell, Node.js 22+ and npm. Linux/macOS installation has not been accepted for this preview; some engine commands use Windows paths.</li>
+            <li>An approved GitHub Copilot account, compatible CLI and access to <code>gpt-5.4-mini</code>. This release does not silently select another model.</li>
+            <li>Network/proxy access to approved npm registries for dependencies and to the Copilot service for model work. Accounts, licences, credits and registry access are not bundled.</li>
+            <li>A reviewed credit allowance and attempt limit, a trusted execution environment, and an operator able to answer questions and inspect generated code.</li>
           </ul>
         </div>
       </div>
       <p class="note"><strong>A Slack workspace export is not application source.</strong> The kit does not connect to Slack and automatically discover, download and migrate every installed app. Inventory import and source preparation are operator-led. Source replay executes code, so never treat the local runner as a sandbox for unreviewed customer repositories or production credentials.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Dependencies by migration stage">
+        <table class="capability-table">
+          <caption>Dependencies change as you move from local artifacts to a live application</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">You must supply</th><th scope="col">What the kit does not supply</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Install and run deterministic checks</th><td>The reviewed private package, Node/npm, package-registry access and trusted synthetic/source code.</td><td>No live Slack/Teams registration is required for local replay. Regression tests use synthetic data and some fake model responses; they do not establish model access or tenant readiness.</td></tr>
+            <tr><th scope="row">Investigate and generate</th><td>Compatible signed-in Copilot CLI, model access, credits, allowlisted source jobs, identity mappings, acceptance cases and reviewed owner decisions.</td><td>No source discovery, vendor-code retrieval or business-owner sign-off. CLI <code>doctor</code> checks required flags; it does <strong>not</strong> validate authentication, subscription entitlement or model availability.</td></tr>
+            <tr><th scope="row">Run a bot in Teams</th><td>Tenant/admin permission to register and install the app; appropriate Entra/bot registration; reviewed manifest IDs, icons and URLs; HTTPS hosting; authenticated bot messaging; secret storage and real identity mapping.</td><td>No Azure/tenant provisioning, installation, credential delivery or production rollout. A compiled SDK adapter and manifest draft are not a deployable, configured service.</td></tr>
+            <tr><th scope="row">Run a personal dashboard</th><td>A separately authenticated HTTPS host, TeamsJS asset and session/list/decision APIs; server-side identity and authorisation; appropriate tab configuration and independent UI checks.</td><td>The generated tab does not install that host or a browser-review harness. Synthetic one-use demo tickets are not production Entra SSO. Browser checks with intercepted APIs are not tenant authentication tests.</td></tr>
+            <tr><th scope="row">Keep integrations and operate safely</th><td>Backend permissions/connectivity, reviewed secrets, durable state, retention requirements, owner UAT, target-client/accessibility checks, monitoring and rollback.</td><td>No business-data/history migration, comprehensive load testing, production operational handover or automatic acceptance. Each application's external services remain dependencies.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="guide-details">
+        <summary>Exact CLI and Windows command requirements</summary>
+        <p>The original release was checked against CLI 1.0.86; the current release test uses <strong>1.0.89-3</strong>. Required options include <code>--session-id</code>, <code>--usage-output-file</code>, <code>--max-ai-credits</code> and the required tool/path restrictions. Run the supplied <code>doctor</code> command before paid work; later CLI or model-catalog changes must be checked rather than assumed compatible.</p>
+        <p>Use <code>npm --prefix .\portfolio run migrate -- ...</code>, not an arbitrary direct Node invocation: the Windows independent verifier needs npm's executable path. Paths after <code>npm --prefix</code> resolve from <code>portfolio</code>. Root dependency installation and generated-target dependency preparation disable lifecycle scripts. Generation still executes trusted source and verifier code.</p>
+      </details>
+    </section>
+    <section id="release-testing" aria-labelledby="release-testing-title">
+      <div class="eyebrow">Exact private release / 25 September 2026</div>
+      <h2 id="release-testing-title">Test the package. State the limits.</h2>
+      <p class="section-intro">The readiness exercise starts from a fresh extraction of the actual private v0.2 ZIP, not the development workspace or an old generated app. All 65 manifest-listed files are checked against their original hashes. The archive and generated targets are not hand-patched to make the exercise pass.</p>
+      <p class="note"><strong>Installation passed; fresh generation is not guaranteed.</strong> The new policy-bot target failed compilation after its initial implementation and three allowed repairs. The controller rejected it and did not mark it migrated. This is direct evidence against describing the current package as &ldquo;install it and everything works&rdquo;, even though earlier policy demonstrations succeeded.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Fresh real-model release test outcomes">
+        <table>
+          <caption>Real GPT-5.4 mini generation from the unchanged ZIP &mdash; local artifacts only</caption>
+          <thead><tr><th scope="col">Asset</th><th scope="col">Final outcome</th><th scope="col">What actually happened</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Policy lookup bot</th><td><strong>Verification failed</strong></td><td>Four implementation attempts exhausted. The final generated SDK acknowledgement type did not compile. No passing target replay, acceptance or deployment was claimed.</td></tr>
+            <tr><th scope="row">Approvals dashboard</th><td><strong>Accepted locally after two repairs</strong></td><td>12 domain scenarios / 14 steps passed, including trusted-actor checks; then all <strong>9 independent browser scenarios</strong> passed. Browser review rejected the first two revisions before local acceptance.</td></tr>
+            <tr><th scope="row">Whole two-asset portfolio</th><td><strong>Incomplete, not an all-pass result</strong></td><td>The completion command correctly returned nonzero because the policy bot failed. Resuming the accepted/exhausted jobs made zero new model invocations. The original ZIP and both source domains stayed unchanged.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">The dashboard's first domain-level pass missed lost decision messages, incomplete clearing of private data, malformed records and a late-response expiry race. A model repair fixed those; a second fixed the remaining stuck busy state. The external browser harness used synthetic Teams context and intercepted HTTP, not a real tenant or production SSO. <a href="#kit-costs">All failed and successful attempts are included in the cost ledger.</a></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Packaged release setup and guard checks">
+        <table>
+          <caption>Fresh-folder setup and deterministic checks</caption>
+          <thead><tr><th scope="col">Check</th><th scope="col">Observed result</th><th scope="col">Evidence boundary</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dependency installation</th><td>Passed with <code>npm ci --ignore-scripts</code>.</td><td>Existing Windows workstation, Node 24.14.0, npm 11.9.0. A new folder, not a clean machine or new user.</td></tr>
+            <tr><th scope="row">Packaged regression suites</th><td><strong>18 engine + 19 portfolio checks passed.</strong></td><td>Synthetic fixtures; some controller cases use fake model responses. This row is not evidence of new model generation or tenant deployment.</td></tr>
+            <tr><th scope="row">CLI preflight and sample intake</th><td>Required flags passed on Copilot CLI 1.0.89-3; the two jobs prepared and the dashboard stopped for its scope answer.</td><td><code>doctor</code> itself checks neither authentication nor model availability. The real-model exercise is a separate evidence scope.</td></tr>
+            <tr><th scope="row">Unsupported / unavailable source</th><td>Vendor-without-source, manual-review/different-stack and missing-source entries stayed blocked. Initial run and resume made <strong>zero model calls</strong>.</td><td>The completion check rejected the incomplete portfolio instead of reporting successful migrations.</td></tr>
+            <tr><th scope="row">Review gate</th><td>A stale plan hash was rejected; the source-backed policy plan required its exact current hash.</td><td>Named synthetic-test operator review, not authenticated customer or production approval.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="guide-details">
+        <summary>Artifact fingerprint, reproducibility and outstanding adoption checks</summary>
+        <p>The tested archive is <code>slack-teams-portfolio-v0.2.0.zip</code>, SHA-256 <code>c9417110cd8a88f8e8e8747501683cb655d2ce4eb388deaaf1190a4f6c8f7f9d</code>. It has 66 files including the release manifest. This identifies a private test artifact; it is not a download link or a source release.</p>
+        <p>The extra Playwright browser review is a separate harness used for this exercise, not a check automatically installed or run by the packaged CLI. Engineers must supply equivalent UI/integration review. A domain-level pass is not enough to accept the dashboard.</p>
+        <p>Resolve or explicitly reject failed targets before handoff. Before claiming independent-adopter readiness, use a separate user and clean machine with a new authorised source application and that user's own tenant/integrations. Linux/macOS, customer source, real production identity, live deployment, load and full operational acceptance are not established by this exercise.</p>
+        <p><a href="https://github.com/RyanBowie/slack-to-teams-migration-kit/blob/main/docs/readiness.md">Read the complete installation and compatibility guide</a>.</p>
+      </details>
+    </section>
+    <section id="kit-costs" aria-labelledby="kit-costs-title">
+      <div class="eyebrow">Current release test / final managed costs / 25 September 2026</div>
+      <h2 id="kit-costs-title">Cost per asset. Cost of operating the kit.</h2>
+      <p class="section-intro">The new 200-credit allowance covered two synthetic assets and bounded repairs. Native usage was reconciled across nine runner invocations and two resumed worker sessions. Failed attempts are included; cumulative session totals are not counted again on every resume.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Current release-test asset and stage costs">
+        <table>
+          <caption>Final managed AI credits &mdash; not an all-in project price</caption>
+          <thead><tr><th scope="col">Asset</th><th scope="col">Outcome</th><th scope="col" class="number">Assess</th><th scope="col" class="number">Implement</th><th scope="col" class="number">Repair</th><th scope="col" class="number">Total</th></tr></thead>
+          <tbody>
+            <tr data-readiness-app="policy-lookup" data-readiness-status="verification_failed"><th scope="row">Policy lookup bot</th><td>Failed; four attempts exhausted</td><td class="number" data-stage="assess">4.090995</td><td class="number" data-stage="implement">16.338975</td><td class="number" data-stage="repair">9.690330</td><td class="number" data-stage="total"><strong>30.120300</strong></td></tr>
+            <tr data-readiness-app="manager-approvals" data-readiness-status="accepted"><th scope="row">Approvals dashboard</th><td>Accepted locally; initial generation + two repairs</td><td class="number" data-stage="assess">6.569730</td><td class="number" data-stage="implement">26.832720</td><td class="number" data-stage="repair">22.534440</td><td class="number" data-stage="total"><strong>55.936890</strong></td></tr>
+            <tr><th scope="row" colspan="5">Final managed total, including the failed asset</th><td class="number"><strong id="readiness-managed-total">86.057190</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small"><strong>113.942810 credits remained</strong> from the unchanged 200-credit allowance. No paid <code>clarify</code> or <code>discuss</code> invocation occurred in this particular run; recording the scope answer was deterministic. Investigation through the two model assessments is included above. The outside conversation and review are a different, unallocated scope.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Cost boundaries for running and operating the kit">
+        <table>
+          <caption>What is metered, model-free, or still unallocated?</caption>
+          <thead><tr><th scope="col">Work</th><th scope="col">Cost treatment</th><th scope="col">Important boundary</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Runner-managed investigation and migration</th><td>Metered per asset and stage.</td><td>Assessment, model clarification, consultation, implementation and repairs retain native usage evidence. This run totals 86.057190 credits, including unsuccessful work.</td></tr>
+            <tr><th scope="row">Install, initialise, record answers, approve, compile/replay, check/report and guarded resume</th><td><strong>0 additional migration-model credits</strong> for these deterministic operations.</td><td>They do not themselves invoke a model. Machine/CI time, network, licences and operator effort are not thereby free. Having an assistant operate or interpret them can add separate AI usage.</td></tr>
+            <tr><th scope="row">Outside coordination, browser-review/harness work and documentation</th><td><strong>Unallocated &mdash; not zero.</strong></td><td>These activities were outside the managed runner. There is no complete task-aligned native checkpoint pair for this conversation, so no defensible per-asset or full-task AI total is invented.</td></tr>
+            <tr><th scope="row">Staff, integrations, deployment and ongoing hosting</th><td>Separate organisational/infrastructure costs; not priced in AI credits here.</td><td>This exercise deployed no new tenant app and provisioned no production host. It is not a quote for rollout or operations.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>86.057190 is the managed migration-run cost, not the total cost of this exercise.</strong> For repeatable budgeting, use the runner's <code>discuss</code> command for metered app or shared investigation, track external work separately, and estimate from a representative pilot including failures and repairs. Do not multiply only the successful dashboard price by the number of Slack apps.</p>
+      <p class="small">These generation costs are not per end-user Teams request; the sample business services are deterministic. Earlier evidence remains separate: the <a href="#portfolio-proof">24 September three-app local batch (198.358950 credits)</a>, the <a href="#coverage">coverage batch including its stopped notification failure (252.508065)</a>, and the <a href="#costs">historical worker-only measurements</a> use different scopes. None is silently added to this test.</p>
     </section>
     <section id="workflow" aria-labelledby="workflow-title">
       <div class="eyebrow">From an experiment to a repeatable workflow</div>
@@ -654,11 +747,16 @@
     <section id="quick-start" aria-labelledby="start-title">
       <div class="eyebrow">For migration engineers</div>
       <h2 id="start-title">Start small. Review. Then repeat.</h2>
-      <p class="section-intro">These commands document the private demonstration workflow; they are not runnable from this documentation-only repository. The toolkit used Node.js 22+, npm and a signed-in compatible Copilot CLI. Any reproduction needs its own reviewed source, implementation and credit allowance.</p>
-      <pre aria-label="PowerShell quick-start commands"><code>npm ci --ignore-scripts
+      <p class="section-intro">These commands require the private kit root; they are not runnable from this documentation-only repository. Read the <a href="#inputs">prerequisites and stage dependencies</a>, check that the source fits a <a href="#compatibility">shipped recipe</a>, and review the <a href="#release-testing">exact-release evidence</a> first.</p>
+      <h3>1. Install and check before allowing model work</h3>
+      <pre aria-label="PowerShell installation and no-model checks"><code>npm ci --ignore-scripts
+npm test
 npm --prefix .\portfolio test
-npm --prefix .\portfolio run migrate -- doctor
-npm --prefix .\portfolio run migrate -- init examples\pilot.json
+npm --prefix .\portfolio run migrate -- doctor</code></pre>
+      <p class="small">These checks make no migration-model calls. <code>doctor</code> returning <code>ready: true</code> is a CLI compatibility result, not proof of sign-in, model entitlement or production readiness.</p>
+      <h3>2. Review the inventory, then start a paid run</h3>
+      <p><strong>Do not run the bundled example unchanged without reviewing its allowance.</strong> Its <code>budgetCredits: 1000</code>, <code>invocationCredits: 75</code> and four default attempts per stage permit new paid work. Choose an approved budget, app list, source root and scope first. The release-test allowance is a separate record, not a default for another user.</p>
+      <pre aria-label="PowerShell reviewed portfolio commands"><code>npm --prefix .\portfolio run migrate -- init examples\pilot.json
 npm --prefix .\portfolio run migrate -- run ..\.portfolio-runs\three-app-pilot
 npm --prefix .\portfolio run migrate -- status ..\.portfolio-runs\three-app-pilot</code></pre>
       <p>Answer the reported questions, inspect each source-backed assessment, and approve its exact hash before implementation. The kit's operator guide explains approval, metered discussion, retry, recovery and acceptance.</p>
@@ -687,6 +785,10 @@ npm --prefix .\portfolio run migrate -- report STATE_DIR</code></pre>
       <details class="guide-details">
         <summary>Can I download the toolkit or finished Teams apps here?</summary>
         <p>No. This publication is the website and documentation only. Toolkit source, fixtures, generated targets and the ZIP remain private. The case studies explain what was built, how it was reviewed and what it cost, so other engineers can reproduce the approach with their own authorised source and tooling.</p>
+      </details>
+      <details class="guide-details">
+        <summary>If someone receives the private ZIP, will it just work?</summary>
+        <p>It is reusable engineer-operated tooling, not a turnkey installer. A compatible Windows environment can install the package and prepare supported jobs, but the operator must supply model access, source contracts, acceptance cases and decisions. Live use additionally needs registrations, permissions, identity, hosting and integration setup. The <a href="#release-testing">release tests</a> state exactly what passed and what was not tested; they do not certify another user, machine or tenant.</p>
       </details>
       <details class="guide-details">
         <summary>Is this a Copilot Studio agent, a single skill file or a hosted service?</summary>
