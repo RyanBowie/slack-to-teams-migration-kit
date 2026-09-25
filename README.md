@@ -38,3 +38,10 @@ The self-contained website is `site/index.html`. GitHub Pages deploys that
 directory through `.github/workflows/pages.yml` after relevant changes to
 `main`, or when the workflow is manually triggered. Case-study Markdown remains
 under `docs/`.
+
+The visual design follows the
+[Solution Reviewer reference site](https://ryanbowie.github.io/copilot-studio-powerplatform-solution-reviewer-site/):
+its blue-purple headline, lavender controls, neutral dark surfaces,
+two-column introduction and numbered screenshot grid. The reference palette is
+an explicit override of the page's original theme foundation. Migration
+evidence, costs and publication boundaries remain independent of that reference.
