@@ -12,7 +12,10 @@ workflow, limitations, an unsuccessful notification example, and a controlled
 GPT-5.6 Sol cost benchmark with three accepted samples each for Equipment Loans,
 Store Operations and Manager Approvals. The benchmark reports worker,
 coordinator and parent setup/supervision costs instead of presenting worker-only
-usage as an end-to-end price. All scenarios and business data are synthetic.
+usage as an end-to-end price. It also reports 18 samples across six additional
+patterns and a two-full-application programme that passed code/browser/protected
+host gates but remained blocked at actual tenant installation. All scenarios and
+business data are synthetic.
 
 The latest exact-ZIP readiness test is deliberately a mixed result: installation
 and 37 packaged regression checks passed; a new dashboard was accepted locally
@@ -28,6 +31,8 @@ The prerequisites and compatibility guide explains those adoption limits.
 - [Additional coverage: two accepted migrations and one stopped failure](docs/coverage.md)
 - [Fresh three-app portfolio generation and cost breakdown](docs/acceptance.md)
 - [GPT-5.6 Sol nine-migration all-in cost benchmark](docs/gpt56-cost-benchmark.md)
+- [GPT-5.6 Sol remaining-pattern benchmark](docs/gpt56-remaining-patterns.md)
+- [GPT-5.6 Sol two-full-application result](docs/gpt56-full-apps.md)
 
 ## Publication boundary
 
