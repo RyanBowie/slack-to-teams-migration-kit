@@ -17,7 +17,9 @@ patterns and a two-full-application programme that passed code/browser/protected
 host gates but remained blocked at actual tenant installation. Two further
 full-application archetypes separate source-recreation cost from repeatable
 migration and acceptance cost. A second comparable pair provides four-app
-consistency statistics. All scenarios and business data are synthetic.
+consistency statistics. Two event-driven non-UI archetypes add six more
+migrations and a broader 21-migration non-UI average. All scenarios and business
+data are synthetic.
 
 The latest exact-ZIP readiness test is deliberately a mixed result: installation
 and 37 packaged regression checks passed; a new dashboard was accepted locally
@@ -37,6 +39,7 @@ The prerequisites and compatibility guide explains those adoption limits.
 - [GPT-5.6 Sol two-full-application result](docs/gpt56-full-apps.md)
 - [GPT-5.6 Sol full-application cost extension](docs/gpt56-full-app-cost-extension.md)
 - [GPT-5.6 Sol four-application consistency benchmark](docs/gpt56-full-app-consistency.md)
+- [GPT-5.6 Sol non-UI event-driven benchmark](docs/gpt56-non-ui-extension.md)
 
 ## Publication boundary
 

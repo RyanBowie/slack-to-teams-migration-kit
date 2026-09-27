@@ -778,6 +778,44 @@
         </table>
       </div>
       <p class="small">*Coordinator and parent usage was measured for the batch rather than per migration. The allocated all-in means add an equal 97.868941-credit share of that overhead to each direct worker mean. Failed startup and rejected attempts remain in the ledgers. See the <a href="https://github.com/RyanBowie/slack-to-teams-migration-kit/blob/main/docs/gpt56-remaining-patterns.md">detailed accounting and acceptance boundary</a>.</p>
+      <h3>Non-UI event-driven extension: six fresh migrations</h3>
+      <p class="section-intro">Two additional non-dashboard archetypes test more demanding integration behaviour. Procurement Status Assistant combines private commands, synthetic upstream purchase-order webhooks and Adaptive Card actions. On-call Incident Router ingests monitoring events, deduplicates and routes incidents, then supports acknowledgement, escalation and resolution actions. Each archetype was built once as a synthetic Slack source and migrated independently three times.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Non UI event driven migration averages">
+        <table>
+          <caption>GPT-5.6 Sol non-UI event-driven costs, in AI credits</caption>
+          <thead><tr><th scope="col">Archetype</th><th scope="col" class="number">Accepted n</th><th scope="col" class="number">Direct migration mean</th><th scope="col" class="number">Median</th><th scope="col" class="number">Observed range</th><th scope="col" class="number">One-time source + maintenance</th><th scope="col" class="number">Amortized all-in mean*</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Procurement Status Assistant</th><td class="number">3</td><td class="number"><strong>353.653060</strong></td><td class="number">371.317840</td><td class="number">317.484040&ndash;372.157300</td><td class="number">133.123360</td><td class="number"><strong>578.714633</strong></td></tr>
+            <tr><th scope="row">On-call Incident Router</th><td class="number">3</td><td class="number"><strong>271.343553</strong></td><td class="number">252.635200</td><td class="number">194.672180&ndash;366.723280</td><td class="number">167.260820</td><td class="number"><strong>507.784280</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Non UI event driven all in accounting">
+        <table>
+          <caption>All measured AI usage for the six-migration event-driven programme</caption>
+          <thead><tr><th scope="col">Cost scope</th><th scope="col" class="number">Credits</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Migration samples</th><td class="number">1,874.989840</td></tr>
+            <tr><th scope="row">One-time source creation + maintenance</th><td class="number">300.384180</td></tr>
+            <tr><th scope="row">Shared kit engineering</th><td class="number">27.392840</td></tr>
+            <tr><th scope="row">GPT-5.6 coordinator</th><td class="number">732.373860</td></tr>
+            <tr><th scope="row">Parent supervision/reporting</th><td class="number">324.356020</td></tr>
+            <tr><th scope="row">All-in measured programme total</th><td class="number"><strong>3,259.496740</strong></td></tr>
+            <tr><th scope="row">All-in mean across six migrations</th><td class="number"><strong>543.249457</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">*Each archetype's source/maintenance cost is divided across its three migrations. Shared kit, coordinator and parent usage totals 1,084.122720 credits and is divided equally across all six migrations: 180.687120 each. Procurement: `353.653060 migration + 44.374453 source + 180.687120 shared = 578.714633`. On-call: `271.343553 + 55.753607 + 180.687120 = 507.784280`. A timed-out Procurement implementation remains charged at 146.504260 credits. See the <a href="https://github.com/RyanBowie/slack-to-teams-migration-kit/blob/main/docs/gpt56-non-ui-extension.md">detailed evidence</a>.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Broader non UI benchmark summary">
+        <table>
+          <caption>Broader native/protected non-UI migration evidence</caption>
+          <thead><tr><th scope="col">Scope</th><th scope="col" class="number">Application patterns</th><th scope="col" class="number">Accepted migrations</th><th scope="col" class="number">Direct worker total</th><th scope="col" class="number">Direct worker mean</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Maintenance, policy, delivery, reservations, intake, procurement status and on-call routing</th><td class="number">7</td><td class="number">21</td><td class="number">3,766.439920</td><td class="number"><strong>179.354282</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Complexity changes the average.</strong> The five earlier command/workflow patterns had direct means of roughly 87&ndash;150 credits. The two new event-driven patterns averaged 271&ndash;354 because they add webhook validation, event deduplication, protected HTTP transport, card-action authorization and deeper recovery tests. The 179.354282-credit broader average is a mixed planning figure, not a promise that every non-UI migration costs the same.</p>
       <h3>Two new full applications: accepted code, blocked installation</h3>
       <p class="section-intro">Store Opening Readiness and Product Recall Coordination were designed as new substantial Slack applications, source-built, analysed for maintenance, migrated through the kit and independently tested. Both final Teams targets passed 15 browser scenarios and protected-host lifecycle parity, including one-use-ticket rejection. Migration Examples Lab 1.4.0 was built, but actual tenant installation could not be completed: the approved Teams renderer was unresponsive and the approved CLI identity lacked Microsoft Graph AppCatalog scope.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="Two full application accounting">
