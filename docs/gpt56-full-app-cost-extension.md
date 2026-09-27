@@ -58,6 +58,19 @@ produces:
 | Supplier Onboarding Hub | 1,131.913370 |
 | Major Incident Command | 1,260.986010 |
 
+The arithmetic is:
+
+- Supplier direct-worker subtotal:
+  `143.623440 + 40.151840 + 581.604480 = 765.379760`.
+- Major Incident direct-worker subtotal:
+  `320.736440 + 47.008600 + 526.707360 = 894.452400`.
+- Shared AI overhead:
+  `(75.032320 + 500.632620 + 157.402280) / 2 = 366.533610` per app.
+- Supplier allocated all-in:
+  `765.379760 + 366.533610 = 1,131.913370`.
+- Major Incident allocated all-in:
+  `894.452400 + 366.533610 = 1,260.986010`.
+
 Every charged failed and superseded attempt remains included. Four early worker
 attempts used incomplete contained workspaces, Major Incident required source
 syntax repairs, and both targets required browser-led acceptance repair.
