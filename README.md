@@ -14,8 +14,9 @@ Store Operations and Manager Approvals. The benchmark reports worker,
 coordinator and parent setup/supervision costs instead of presenting worker-only
 usage as an end-to-end price. It also reports 18 samples across six additional
 patterns and a two-full-application programme that passed code/browser/protected
-host gates but remained blocked at actual tenant installation. All scenarios and
-business data are synthetic.
+host gates but remained blocked at actual tenant installation. Two further
+full-application archetypes separate source-recreation cost from repeatable
+migration and acceptance cost. All scenarios and business data are synthetic.
 
 The latest exact-ZIP readiness test is deliberately a mixed result: installation
 and 37 packaged regression checks passed; a new dashboard was accepted locally
@@ -33,6 +34,7 @@ The prerequisites and compatibility guide explains those adoption limits.
 - [GPT-5.6 Sol nine-migration all-in cost benchmark](docs/gpt56-cost-benchmark.md)
 - [GPT-5.6 Sol remaining-pattern benchmark](docs/gpt56-remaining-patterns.md)
 - [GPT-5.6 Sol two-full-application result](docs/gpt56-full-apps.md)
+- [GPT-5.6 Sol full-application cost extension](docs/gpt56-full-app-cost-extension.md)
 
 ## Publication boundary
 
