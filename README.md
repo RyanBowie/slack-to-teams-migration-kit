@@ -49,12 +49,24 @@ toolkit ZIP, private run records, raw screenshots, usage logs, tenant
 configuration or credentials. The embedded images are reviewed cropped/redacted
 derivatives of genuine client captures.
 
-No MIT licence is being added as part of this documentation publication.
-The private toolkit is not being released or licensed here.
+The [MIT licence](LICENSE) covers this repository's own website and
+documentation only. The private toolkit is not included here and is not
+released or licensed by this repository.
 
 Historical live demonstrations, local generation checks and production
 acceptance are different scopes. Worker credits exclude outside coordination,
 tooling development, live testing, documentation, staff effort and hosting.
+
+## Licence and disclaimer
+
+**Community project, built with GitHub Copilot.** The website and documentation
+in this repository are released under the [MIT licence](LICENSE). It isn't a
+Microsoft product and isn't supported by Microsoft. Provided "as is", without
+warranty of any kind; no SLA or support commitment.
+
+Slack, Microsoft Teams and other product names, trademarks and interface
+screenshots belong to their respective owners and aren't covered by the MIT
+licence.
 
 ## Website updates
 

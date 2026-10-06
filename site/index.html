@@ -316,7 +316,7 @@
           <h3>Investigate. Generate. Verify.</h3>
           <p>Copilot reads scoped source, surfaces questions and builds the reviewed Teams adapter. Independent checks compare the result with the original behaviour; failed checks feed bounded repairs instead of becoming a success claim.</p>
           <div class="actions"><a class="button primary" href="#workflow">How the process works</a><a class="button primary" href="#kit-contents">Inside the private toolkit</a><a class="button" href="#compatibility">Check the supported patterns</a><a class="button" href="#coverage">Additional coverage and costs</a></div>
-          <p><strong>Documentation, not a product release.</strong> This public repository contains the website and case studies only. Toolkit source, ZIP, generated apps and private evidence remain private.</p>
+          <p><strong>Documentation, not a product release.</strong> A community project built with GitHub Copilot and shared under the MIT licence; not a Microsoft product or supported by Microsoft. This public repository contains the website and case studies only. Toolkit source, ZIP, generated apps and private evidence remain private.</p>
           <p class="fine-print"><strong>A reusable developer preview, not a turnkey installer.</strong> Engineers still supply source contracts, acceptance cases, identity mappings and authenticated hosting. Read the <a href="#inputs">prerequisites</a> and <a href="#release-testing">exact-release test evidence</a>; a local pass is not deployment approval.</p>
           <details><summary>What you need before starting</summary><p>Bring <a href="#inputs">authorised source and owner decisions</a>, inspect <a href="#outputs">the expected artifacts</a>, and distinguish the <a href="#portfolio-proof">fresh local generation evidence</a> from historical live proof. The <a href="#faq">FAQ</a> covers the remaining limits.</p></details>
         </article>
@@ -1012,6 +1012,7 @@ npm --prefix .\portfolio run migrate -- report STATE_DIR</code></pre>
           <li><strong>Not every Slack app.</strong> The recipes cover defined Node/Bolt and approval-domain contracts. Other stacks and vendor apps need another reviewed path.</li>
           <li><strong>Not production acceptance.</strong> Durable state, SSO, customer integrations, multi-person isolation, load and comprehensive accessibility/client testing remain separate work.</li>
           <li><strong>Not transferable live proof.</strong> Earlier live examples do not establish that a newly generated portfolio revision is installed in Teams.</li>
+          <li><strong>Not a Microsoft product.</strong> A community project built with GitHub Copilot, shared under the <a href="https://github.com/RyanBowie/slack-to-teams-migration-kit/blob/main/LICENSE">MIT licence</a> as is, without warranty, an SLA or Microsoft support.</li>
           <li><strong>Not a public data dump.</strong> Tenant identifiers, credentials, private conversations, raw event logs and unsanitised screenshots are deliberately excluded from this page.</li>
         </ul>
         <p class="small">Evidence summary dated September 2026. The gallery embeds reviewed, cropped derivatives from hash-checked historical captures, with account-reference redaction where stated. Original captures and full private evidence remain outside this documentation repository. The separate earlier expanded walkthrough contains nine original screenshots from a set of 22 hash-checked captures.</p>
@@ -1023,7 +1024,7 @@ npm --prefix .\portfolio run migrate -- report STATE_DIR</code></pre>
     <p id="evidence-help" class="small">Original-size crop of a real client capture. Scroll inside the image to inspect it on smaller screens. Press Escape or Close image to return.</p>
     <div class="evidence-scroll" tabindex="0" role="region" aria-label="Full-size migration screenshot"><img id="evidence-full" alt=""></div>
   </dialog>
-  <footer><div class="wrap">A developer demonstration of source-led migration with GitHub Copilot. Not an official migration service or a guarantee of compatibility. This static page has no analytics, external scripts, live tenant connections or authentication.</div></footer>
+  <footer><div class="wrap"><strong>Community project built with GitHub Copilot</strong> &middot; <a href="https://github.com/RyanBowie/slack-to-teams-migration-kit/blob/main/LICENSE">MIT licence</a> (website and documentation only) &middot; not a Microsoft product or supported by Microsoft &middot; provided as is, without warranty. A developer demonstration of source-led migration, not an official migration service or a guarantee of compatibility. Slack, Teams and other product names, trademarks and interface screenshots belong to their respective owners. This static page has no analytics, external scripts, live tenant connections or authentication.</div></footer>
   <script>
     const requestedTheme = new URLSearchParams(location.search).get("scoutTheme");
     if (["light", "dark"].includes(requestedTheme)) document.documentElement.dataset.theme = requestedTheme;
